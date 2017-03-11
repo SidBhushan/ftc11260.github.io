@@ -1,7 +1,7 @@
 html
 {
     font-family: sans-serif;
-    font-size: 36px;
+    font-size: 9vw;
     text-align: center;
     -webkit-appearance: none;
     border-radius: 0;
@@ -16,14 +16,14 @@ body
 
 span
 {
-    font-size: 30px;
+    font-size: 7vw;
 }
 
 button
 {
     width: 20%;
     height: 12%;
-    font-size: 30px;
+    font-size: 8vw;
 }
 
 

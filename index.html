@@ -2,45 +2,54 @@
 
 <html>
     <head>
-        <title>Scouting App</title>
-        <style>
-             html
-            {
-                font-family: sans-serif;
-            }
-        </style>
+        <title>Scoring Calculator</title>
+        <link href='styles.css' rel='stylesheet'>
     </head>
     <body>
-        Team Number: <input id="teamNum" type="number" min="0"> <br>
-        <strong>Autonomous</strong> <br>
-        Shots: <input id="autonShots" type="number" min="0" max="3"><br>
-        Beacons: <input id="autonBeacons" type="number" min="0" max="2"><br>
-        Park: <select id="park">
-                <option>None</option>
-                <option>Partial Center</option>
-                <option>Partial Ramp</option>
-                <option>Full Center</option>
-                <option>Full Ramp</option>
-            </select> <br>
-        <strong>Teleop</strong> <br>
-        Shots: <input id="teleopShots" type="number" min="0"> <br>
-        Beacons: <input id="teleopBeacons" type="number" min="0"> <br>
-        Cap Ball: <select id="cap">
-                     <option>None</option>
-                     <option>Off the Ground (10)</option>
-                     <option>Above the Crossbar (20)</option>
-                     <option>Capped (40)</option>
-                 </select> <br>
-        <strong>Notes</strong> <br>
-        <textarea id="notes" cols="40" rows="5"></textarea> <br>
-        <button onclick="submit()">Submit</button>
-        
-        <a target="_blank" href="results.html">Results</a>
-        
-        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-        <button onclick="localStorage.clear(); alert('Storage Cleared')">Do Not Click! - Will Delete All Data</button>
+        <strong>Score: </strong> <span id='score'>0</span> <button id='update' onclick='calc()'>Update</button> <br>
 
-        <script src="script.js"></script>
+        <strong>Autonomous</strong> <br>
+        <button onclick='update(-1,"autonShots")'>S-</button>
+        <span id='autonShots'>0</span>
+        <button onclick='update(1,"autonShots")'>S+</button> <br>
+        <button onclick='update(-1,"autonBeacons")'>B-</button>
+        <span id='autonBeacons'>0</span>
+        <button onclick='update(1,"autonBeacons")'>B+</button> <br>
+        <button onclick='update(-1,"park")'>P-</button>
+        <span id='park'>0</span>
+        <button onclick='update(1,"park")'>P+</button> <br>
+        <button onclick='update(-1,"autonCap")'>C-</button>
+        <span id='autonCap'>0</span>
+        <button onclick='update(1,"autonCap")'>C+</button> <br>
+
+        <strong>Teleop</strong> <br>
+        <button onclick='update(-1,"teleopShots")'>S-</button>
+        <span id='teleopShots'>0</span>
+        <button onclick='update(1,"teleopShots")'>S+</button> <br>
+        <button onclick='update(-1,"teleopBeacons")'>B-</button>
+        <span id='teleopBeacons'>0</span>
+        <button onclick='update(1,"teleopBeacons")'>B+</button> <br>
+        <button onclick='update(-1,"cap")'>C-</button>
+        <span id='cap'>0</span>
+        <button onclick='update(1,"cap")'>C+</button> <br>
+
+        <script>
+            function update(num, target) 
+            {
+                currentNum = parseInt(document.getElementById(target).innerHTML)
+                document.getElementById(target).innerHTML = currentNum + num
+            }
+
+            function calc()
+            {
+                let score = parseInt(document.getElementById("autonShots").innerHTML)*15 + parseInt(document.getElementById("autonBeacons").innerHTML)*30 + parseInt(document.getElementById("park").innerHTML)*5 + parseInt(document.getElementById("teleopShots").innerHTML)*5 + parseInt(document.getElementById("teleopBeacons").innerHTML)*10 + parseInt(document.getElementById("autonCap").innerHTML)*5
+                score += parseInt(document.getElementById("cap").innerHTML)*10
+                if(parseInt(document.getElementById("cap").innerHTML) == 3)
+                {
+                    score += 10
+                }
+                document.getElementById("score").innerHTML = score
+            }
+        </script>
     </body>
 </html>

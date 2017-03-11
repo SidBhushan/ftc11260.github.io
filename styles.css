@@ -25,6 +25,8 @@ button
     height: 11.2%;
     font-size: 8vw;
     text-align: center;
+    -webkit-appearance: none;
+    border-radius: 0;
 }
 
 
@@ -32,4 +34,6 @@ button#update
 {
     width: 33%;
     text-align: center;
+    -webkit-appearance: none;
+    border-radius: 0;
 }

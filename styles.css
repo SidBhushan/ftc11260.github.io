@@ -27,6 +27,9 @@ button
     text-align: center;
     -webkit-appearance: none;
     border-radius: 0;
+    border: 1px solid gray;
+    background-color: lightgray; 
+    padding: none;
 }
 
 
@@ -34,6 +37,4 @@ button#update
 {
     width: 33%;
     text-align: center;
-    -webkit-appearance: none;
-    border-radius: 0;
 }

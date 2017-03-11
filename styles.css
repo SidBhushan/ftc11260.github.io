@@ -5,6 +5,13 @@ html
     text-align: center;
     -webkit-appearance: none;
     border-radius: 0;
+    height: 100%;
+}
+
+
+body
+{
+    height: 100%
 }
 
 span
@@ -15,7 +22,7 @@ span
 button
 {
     width: 20%;
-    height: 75px;
+    height: 12%;
     font-size: 30px;
 }
 

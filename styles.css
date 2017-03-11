@@ -4,6 +4,7 @@ html
     font-size: 36px;
     text-align: center;
     -webkit-appearance: none;
+    border-radius: 0;
 }
 
 span
